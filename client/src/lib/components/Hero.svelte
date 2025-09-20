@@ -21,7 +21,7 @@
 
 <style>
 .hero-container {
-    padding-top: 5rem;
+    padding-top: 6rem;
 }
 
 .hero-heading {

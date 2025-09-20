@@ -4,7 +4,7 @@
 
 <nav class="navbar-section fixed top-0 w-full bg-white shadow-md shadow-rose-300/10 z-50 text-black h-10">
     <div class="navbar-items max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-center gap-10 h16 items-center">
+        <div class="flex mjustify-start md:justify-center gap-10 h16 items-center">
             <!--desktop menu-->
             <div class="hidden md:flex space-x-8">
                 <a href="#hero-section" class="hover:text-red-300 transition" aria-label="home">home</a>
