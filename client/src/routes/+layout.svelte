@@ -10,7 +10,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Navbar></Navbar>
+<Navbar />
 <div class="container mx-auto">
 	{@render children?.()}
 </div>
