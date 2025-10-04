@@ -11,8 +11,8 @@
         <div class="flex justify-start md:justify-center gap-10 h16 items-center">
             <!--desktop menu-->
             <div class="hidden md:flex space-x-8">
-                <a href="#hero-section" class="hover-underline hover:text-secondary transition" aria-label="home">home</a>
-                <a href="#about-me" class="hover-underline scroll-mt-32 hover:text-secondary transition" aria-label="about me">about me</a>
+                <a href="#home" class="hover-underline hover:text-secondary transition" aria-label="home">home</a>
+                <a href="#aboutme" class="hover-underline scroll-mt-32 hover:text-secondary transition" aria-label="about me">about me</a>
                 <a href="#projects" class="hover-underline hover:text-secondary transition" aria-label="projects">projects</a>
                 <a href="#contact" class="hover-underline hover:text-secondary transition" aria-label="projects">contact</a>
             </div>
@@ -30,7 +30,7 @@
     <!--mobile menu items-->
     {#if isOpen}
         <div class="md:hidden bg-white px-4 pb-4 space-y-2">
-            <a href="#hero-section" class="block hover:text-secondary transition" aria-label="home">home</a>
+            <a href="#home" class="block hover:text-secondary transition" aria-label="home">home</a>
             <a href="#hero-section" class="block hover:text-secondary transition" aria-label="about me">about me</a>
             <a href="#hero-section" class="block hover:text-secondary transition" aria-label="projects">projects</a>
         </div>
