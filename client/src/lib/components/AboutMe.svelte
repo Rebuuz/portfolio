@@ -20,7 +20,7 @@
 </script>
 
 
-<section class="aboutme-section bg-white rounded-3xl p-20 mb-20 shadow-2xl" id="about-me">
+<section class="aboutme-section bg-white rounded-3xl p-20 mb-20 shadow-2xl" id="aboutme">
     <div class="flex flex-row justify-between">
         <div class="flex flex-row gap-6 col-span-2">
             <img alt="Rebecca Lager" src="{myPhoto}" class="mx-auto w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-primary" />
@@ -87,7 +87,7 @@
                         <FileDown class="mr-2" /> download (pdf)
                     </a>
                 </Button>
-                
+
                 {#if showToast}
                 <div 
                     class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-6 border-2 border-primary bg-white rounded-2xl shadow-2xl flex flex-col items-center gap-4 text-center h-100 w-100"
