@@ -20,7 +20,7 @@
 </script>
 
 
-<section class="aboutme-section bg-white rounded-3xl p-20 mb-20 shadow-2xl" id="aboutme">
+<section class="aboutme-section mb-40 mt-10" id="about-me">
     <div class="flex flex-row justify-between">
         <div class="flex flex-row gap-6 col-span-2">
             <img alt="Rebecca Lager" src="{myPhoto}" class="mx-auto w-64 h-64 object-cover rounded-full shadow-2xl border-4 border-primary" />
@@ -30,7 +30,7 @@
                         <CircleArrowLeft/>
                     </div>
                     <div class="about-me-title">
-                        <h2 class="text-left text-2xl text-rose-300">about me</h2>
+                        <h2 class="text-left text-3xl text-rose-300">about me</h2>
                     </div>
                 </div>
                 <p class="text-left pt-4">I'm Rebecca Lager, a junior fullstack developer with a strong interest in frontend development. I enjoy creating clean, user-friendly interfaces and am always curious to learn new technologies that improve the user experience.</p>
