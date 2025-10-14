@@ -87,7 +87,7 @@
                         <FileDown class="mr-2" /> download (pdf)
                     </a>
                 </Button>
-                
+
                 {#if showToast}
                 <div 
                     class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-8 py-6 border-2 border-primary bg-white rounded-2xl shadow-2xl flex flex-col items-center gap-4 text-center h-100 w-100"

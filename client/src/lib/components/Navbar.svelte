@@ -30,7 +30,7 @@
     <!--mobile menu items-->
     {#if isOpen}
         <div class="md:hidden bg-white px-4 pb-4 space-y-2">
-            <a href="#hero-section" class="block hover:text-secondary transition" aria-label="home">home</a>
+            <a href="#home" class="block hover:text-secondary transition" aria-label="home">home</a>
             <a href="#hero-section" class="block hover:text-secondary transition" aria-label="about me">about me</a>
             <a href="#hero-section" class="block hover:text-secondary transition" aria-label="projects">projects</a>
         </div>
