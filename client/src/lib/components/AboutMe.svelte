@@ -1,21 +1,98 @@
 <script lang="ts">
     import myPhoto from "$lib/assets/images/rebeccalager.png";
 	import * as Accordion from "$lib/components/ui/accordion"; 
-    import { CircleArrowLeft, Asterisk, School, FileDown, BadgeCheck } from "lucide-svelte";
+    import { CircleArrowLeft, Asterisk, School, FileDown, BadgeCheck, X, BadgeX } from "lucide-svelte";
 	import Button from "./ui/button/button.svelte";
     import { fly } from "svelte/transition";
     import { tick } from "svelte";
+    import emailjs from "@emailjs/browser";
 
+    //popups
     let showToast = false;
+    let showContact = false;
+    let emailSent: boolean | null = null; //if null - not sent, if true = sent, false = failed to send
 
+    //contact popup information
+    let name = "";
+    let email = "";
+    let message = "";
+
+    //error 
+    let nameError = "";
+    let emailError = "";
+    let messageError = "";
+
+    //download cv function
   async function handleDownload() {
     showToast = true;
     await tick();
 
-    // Dölj toasten efter 3 sekunder
     setTimeout(() => {
       showToast = false;
     }, 3000);
+  }
+
+  //email validation function
+  function validateEmail(email:string) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    return re.test(email);
+  }
+  
+  //sending email function
+  async function sendEmail() {
+    nameError = "";
+    emailError = "";
+    messageError = "";
+
+    let hasError = false;
+
+    if (!name) {
+        nameError = "Please enter a name";
+        hasError = true;
+    } 
+
+    if (!email) {
+        emailError = "Please enter an email address";
+        hasError = true;
+    } 
+
+    if (!message) {
+        messageError = "Please enter a message";
+        hasError = true;
+    } 
+
+    if (!validateEmail(email)) {
+        emailError = "Please enter a valid email adress"
+        hasError = true;
+    }
+
+    if(hasError) return; //stop if there is an error
+
+    //send email with emailjs
+    try {
+        await emailjs.send(
+            "service_g37q6j6",
+            "template_v4pb1fd",
+            {
+                from_name: name,
+                from_email: email,
+                message: message
+            },
+            "4-4eSBBfV5lmz6Sg0"
+        );
+        emailSent = true;
+
+        setTimeout(() => {
+            showContact = false;
+            emailSent = null;
+            name = "";
+            email = "";
+            message = "";
+        }, 2000);
+    } catch (error) {
+        console.error("Email failed to send", error);
+        emailSent = false;
+    }
   }
 </script>
 
@@ -33,7 +110,77 @@
                         <h2 class="text-left text-3xl text-rose-300">about me</h2>
                     </div>
                 </div>
-                <p class="text-left pt-4">I'm Rebecca Lager, a junior fullstack developer with a strong interest in frontend development. I enjoy creating clean, user-friendly interfaces and am always curious to learn new technologies that improve the user experience.</p>
+                <p class="text-left pt-4">I'm Rebecca Lager, a junior fullstack developer with a strong interest in frontend development. I enjoy creating clean, user-friendly interfaces and am always curious to learn new technologies that improve the user experience. In my spare time, I play games, cuddle with my cats, hang out with my family, knit and so on!</p>
+                <Button class="text-[#333] hover:bg-secondary cursor-pointer mt-4" onclick={() => showContact = true}>
+                    Contact me!
+                </Button>
+
+                {#if showContact}
+                    <!-- Overlay -->
+                    <div 
+                        class="fixed inset-0 bg-transparent bg-opacity-50 z-40"
+                        onclick={() => showContact = false}
+                        role="button"
+                        tabindex="0"
+                        onkeydown={(e) => e.key === 'Enter' && (showContact = false)}
+                    ></div>
+
+                    <!-- Popup -->
+                    <div 
+                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 px-8 py-5 border-2 border-primary bg-white rounded-2xl shadow-2xl flex flex-col gap-4 w-96"
+                        transition:fly={{ y: 20, duration: 300 }}
+                        onclick={(e) => e.stopPropagation()}
+                        role="button"
+                        tabindex="0"
+                        onkeydown={(e) => e.key === 'Enter' && e.stopPropagation()}
+                        >
+                        <h2 class="text-rose-300">Contact me</h2>
+                        <!-- Krysset -->
+                        <X 
+                            class="absolute top-4 right-4 cursor-pointer text-[333]" 
+                            onclick={() => showContact = false}
+                        />
+
+                        {#if emailSent === true}
+                        <div class="flex flex-col items-center gap-4 text-center">
+                            <BadgeCheck class="text-primary w-40 h-40"/>
+                            <span class="text-primary text-center text-xl">Message sent successfully!</span>
+                        </div>
+                        {:else if emailSent === false}
+                        <div class="flex flex-col items-center gap-4 text-center">
+                            <BadgeX class="text-primary text-center w-40 h-40"/>
+                            <span class="text-red-400 text-xl">Failed to send message. Try again!</span>
+                        </div>
+                        {:else}
+                            <input 
+                                type="text" 
+                                placeholder="Your name" 
+                                bind:value={name} 
+                                class="border p-2 rounded-xl w-full focus:border-primary focus:border-2 focus:outline-none {nameError ? 'border-red-400' : 'border'} focus:ring-0"
+                                oninput={() => nameError = ""}/>
+                            {#if nameError}
+                                <span class="text-red-400 text-[12px]">{nameError}</span>
+                            {/if}
+                            <input 
+                                type="email" 
+                                placeholder="Your email" 
+                                bind:value={email}
+                                class="border p-2 rounded-xl w-full focus:border-primary focus:border-2 focus:outline-none {emailError ? 'border-red-400' : 'border'} focus:ring-0" 
+                                oninput={() => emailError = ""}/>
+                            {#if emailError}
+                                <span class="text-red-400 text-[12px]">{emailError}</span>
+                            {/if}
+                            <textarea 
+                                placeholder="Your message" bind:value={message} 
+                                class="border p-2 rounded-xl w-full focus:border-primary focus:border-2 focus:outline-none {messageError ? 'border-red-400' : 'border'} focus:ring-0"
+                                oninput={() => messageError = ""}></textarea>
+                            {#if messageError}
+                                <span class="text-red-400 text-[12px]">{messageError}</span>
+                            {/if}
+                            <Button class="text-[#333] hover:bg-secondary cursor-pointer mt-4" onclick={sendEmail}>Send</Button>
+                        {/if}
+                    </div>
+                {/if}
             </div>
         </div>
 
@@ -83,7 +230,7 @@
             <Accordion.Content class="px-5 rounded-b-xl pt-4 mt-2 text-sm bg-white mb-0.5">
                 <p class="pb-5">Want to read a little bit more? Download my CV down below to get more information:</p>
                 <Button class="text-[#333] hover:bg-secondary cursor-pointer">
-                    <a href="/CV__RebeccaLager_English.pdf" download="Rebecca-Lager-CV.pdf" on:click={handleDownload} class="flex flex-row">
+                    <a href="/CV__RebeccaLager_English.pdf" download="Rebecca-Lager-CV.pdf" onclick={handleDownload} class="flex flex-row">
                         <FileDown class="mr-2" /> download (pdf)
                     </a>
                 </Button>
