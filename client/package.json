@@ -46,6 +46,7 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"@emailjs/browser": "^4.4.1",
 		"lucide-svelte": "^0.544.0"
 	}
 }
