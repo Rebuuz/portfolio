@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <section class="hero-container flex flex-col items-center pb-20 gap-12 pt-10" id="home">
     <div class="hero-image flex justify-center">
         <div class="cat-box">
