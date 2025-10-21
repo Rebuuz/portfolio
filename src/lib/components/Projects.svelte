@@ -4,7 +4,6 @@
     import portfolio from "$lib/assets/images/project-portfolio.png";
     import comingsoon from "$lib/assets/images/comingsoon.png";
 	import { Button } from "./ui/button";
-    import { ArrowUpRight, Heart } from "lucide-svelte";
 </script>
 
 <section class="projects-section" id="projects">

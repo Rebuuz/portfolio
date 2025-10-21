@@ -7,7 +7,7 @@
 
 <main>
     <HeroComponent/>
-    <div class="projects-section bg-white rounded-3xl p-20 mb-5 shadow-2xl">
+    <div class="bg-white rounded-3xl md:p-20 p-5 mb-15 shadow-2xl">
         <AboutMe/>
         <Projects/>
     </div>
