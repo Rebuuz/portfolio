@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin '@tailwindcss/forms';
@@ -143,6 +144,11 @@
     @apply border-border outline-ring/50 font-sans;
   }
 
+  html, body {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
   body {
     @apply bg-background text-foreground;
     color: var(--color-text);
@@ -156,17 +162,82 @@
   h2 {
     @apply font-sans font-bold text-primary;
     font-size: 1.6em;
-  }  
+  } 
+  
+  .cat-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: var(--background);
+  }
+
+  .cat {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.4s;
+    pointer-events: none;
+  }
+
+  /* ear animation */
+  .left-ear {
+  transform-origin: 50% 40%; 
+  transition: transform 0.3s ease;
+  }
+
+  .cat-box:hover .left-ear {
+    transform: rotate(-15deg); 
+  }
+
+  /* tail animation */
+  .cat path:last-child { 
+    transform-origin: 100% 60%;
+    animation: tail-wag 1s infinite alternate;
+  }
+
+  .trigger.white:hover ~ .cat path:last-child,
+  .trigger.black:hover ~ .cat path:last-child {
+    animation: tail-wag-hover 0.5s infinite alternate;
+  }
+
+  @keyframes tail-wag {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(15deg); }
+  }
+
+  @keyframes tail-wag-hover {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(25deg); }
+  }
+  /*eye animation*/
+  .eye {
+    transform-origin: center;
+    transition: transform 0.2s;
+  }
+
+  .cat-box:hover .eye {
+    animation: blink 0.4s ease-in-out forwards;
+  }
+
+  @keyframes blink {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.1); } 
+  }
 }
 
 .hero-heading {
-    font-family: 'Poppins', sans-serif;
     position: relative;
 }
 
 .hero-heading h1 {
+    font-family: 'Poppins', sans-serif;
     color: #b8c995;
-    font-size: 8em;
+    font-size:  clamp(4rem, 10vw, 9rem);
     position: absolute;
     transform: translate(-50%, -50%);
 }
@@ -214,15 +285,15 @@
 
 .hero-text h2 {
     font-family: 'Poiret One', sans-serif;
-    font-size: 1.6em;
+    font-size:  clamp(0.5rem, 10vw, 1.6rem);
     font-weight: bold;
     color: var(--color-text);
 }
 
- .hover-underline {
+.hover-underline {
   position: relative;
   display: inline-block;
-  }
+}
 
 .hover-underline:after {
   content: "";
@@ -241,8 +312,8 @@
   transform: scale(0,1);
 }
 
-.hover-underline:hover:after {
+.hover-underline:hover::after,
+.active-underline::after {
   opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-} 
+  transform: scale(1, 1);
+}
