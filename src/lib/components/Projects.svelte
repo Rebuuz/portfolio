@@ -15,7 +15,7 @@
 
        <div class="flex justify-center">
         <Carousel.Root class="w-full max-w-6xl">
-            <Carousel.Content class="flex gap-4 px-4 p-20">
+            <Carousel.Content class="flex gap-4 px-2 sm:px-4 md:px-8 lg:px-16 py-10">
                 <Carousel.Item class="basis-full sm:basis-1/2 lg:basis-1/3">
                     <a target="_blank" href="https://github.com/Rebuuz/portfolio">
                         <Card.Root class="rounded-2xl shadow-md py-0 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
