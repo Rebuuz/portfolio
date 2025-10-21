@@ -1,7 +1,3 @@
-<script lang="ts">
-
-</script>
-
 <section class="footer" id="footer">
     <div class="flex flex-col justify-center text-center mb-20">
         <span class="text-[#333] text-sm italic">Rebecca Lager - 2025</span>
