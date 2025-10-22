@@ -203,10 +203,10 @@
             <Accordion.Trigger class="px-5 text-bolder text-xl hover:no-underline flex w-full items-center justify-between text-left">education</Accordion.Trigger>
             <Accordion.Content class="px-5 rounded-b-xl pt-4 mt-2 text-sm bg-white">
                 <p class=" flex flex-row items-center gap-2 pb-2">
-                    <School class="text-secondary" /> EC Utbildning (2023-2025)
+                    <School class="text-secondary" /> .NET Developer - EC Utbildning (2023-2025)
                 </p>
                 <p class=" flex flex-row items-center gap-2 pb-2">
-                    <School class="text-secondary" /> Webmaster (2020-2022) 
+                    <School class="text-secondary" /> Webmaster - Högskolan Väst (2020-2022) 
                 </p>
             </Accordion.Content>
             </Accordion.Item>
