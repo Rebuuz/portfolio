@@ -128,7 +128,7 @@
 
                     <!-- Popup -->
                     <div 
-                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 px-8 py-5 border-2 border-primary bg-white rounded-2xl shadow-2xl flex flex-col gap-4 w-100"
+                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 px-8 py-5 border-2 border-primary bg-white rounded-2xl shadow-2xl flex flex-col gap-4 w-80 md:w-100"
                         transition:fly={{ y: 20, duration: 300 }}
                         onclick={(e) => e.stopPropagation()}
                         role="button"
