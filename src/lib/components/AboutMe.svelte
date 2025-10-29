@@ -119,7 +119,7 @@
                 {#if showContact}
                     <!-- Overlay -->
                     <div 
-                        class="fixed inset-0 bg-transparent z-40"
+                        class="fixed inset-0 bg-transparent z-40 backdrop-blur-sm"
                         onclick={() => showContact = false}
                         role="button"
                         tabindex="0"
@@ -135,12 +135,7 @@
                         tabindex="0"
                         onkeydown={(e) => e.key === 'Enter' && e.stopPropagation()}
                         >
-
-                        <!-- Krysset -->
-                        <X 
-                            class="absolute top-4 right-4 cursor-pointer text-[333]" 
-                            onclick={() => showContact = false}
-                        />
+                        <X class="absolute top-4 right-4 cursor-pointer text-[333]" onclick={() => showContact = false}/>
                         <h2 class="text-rose-300 text-center">Contact me</h2>
 
                         {#if emailSent === true}
@@ -223,7 +218,7 @@
 
                 {#if showToast}
                     <div 
-                        class="fixed inset-0 flex items-center justify-center px-6"
+                        class="fixed inset-0 flex items-center justify-center px-6 backdrop-blur-sm"
                         transition:fly={{ y: 20, duration: 300 }}>
                         <div class="bg-white border-2 border-primary rounded-2xl shadow-2xl p-6 flex flex-col items-center gap-4 text-center">
                             <BadgeCheck class="text-primary w-32 h-32"/>
