@@ -64,10 +64,10 @@
 </script>
 
 <header class="navbar-section sticky top-0 z-50 mx-auto 
-        w-full sm:w-[92%] lg:w-[100%]
+        w-full sm:w-[100%] lg:w-[100%]
         rounded-b-2xl lg:rounded-b-2xl
         bg-white/80 border-none shadow-xl
-        p-4 md:w-md">
+        p-4">
     <div class="navbar-items mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-start md:justify-center gap-10 items-center">
             <!--desktop menu-->
