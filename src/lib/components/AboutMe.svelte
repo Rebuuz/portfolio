@@ -211,7 +211,7 @@
             <Accordion.Content class="px-5 rounded-b-xl pt-4 mt-2 text-sm bg-white mb-0.5">
                 <p class="pb-5">Want to read a little bit more? Download my CV down below to get more information:</p>
                 <Button class="text-[#333] hover:bg-secondary cursor-pointer">
-                    <a href="portfolio/CV__RebeccaLager_English.pdf" download="Rebecca-Lager-CV.pdf" onclick={handleDownload} class="flex flex-row items-center">
+                    <a href="portfolio/RebeccaLager-CV_Eng.pdf" download="Rebecca-Lager-CV.pdf" onclick={handleDownload} class="flex flex-row items-center">
                         <FileDown class="mr-2" /> download (pdf)
                     </a>
                 </Button>
