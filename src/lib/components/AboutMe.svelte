@@ -100,7 +100,7 @@
 <section class="aboutme-section mb-20 mt-10 px-4 md:px-8 lg:px-16" id="about-me">
     <div class="flex flex-col lg:flex-row items-center lg:items-start gap-10 justify-between">
         <div class="flex flex-col sm:flex-row gap-6 col-span-2 items-center sm:items-start">
-            <img alt="Rebecca Lager" src="{myPhoto}" class="mx-auto w-40 h-60 sm:w-45 lg:h-64 object-cover rounded-full shadow-2xl border-4 border-primary" />
+            <img alt="Rebecca Lager" src="{myPhoto}" class="mx-auto w-40 h-60 sm:w-45 lg:h-64 rounded-full shadow-2xl border-4 border-primary" />
             <div class="text-container text-center sm:text-left">
                 <div class="flex flex-row items-center justify-center sm:justify-start gap-2 pt-3">
                     <div class="icon text-primary block sm:hidden">
